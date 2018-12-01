@@ -26,6 +26,7 @@ namespace ImageManipulator
         public int ImageWidth = 0;
         public int ImageHeight = 0;
         string FullPath;
+       // int[,] arrayOfNumberOfValuesOfHistogram; = new int[];
 
 
 
@@ -68,7 +69,9 @@ namespace ImageManipulator
                     open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
                     if (open.ShowDialog() == DialogResult.OK)
                     {
+
                         Bitmap bit = new Bitmap(open.FileName);
+                        FullPath = Path.GetFullPath(open.FileName);
                         ImageBoxWidth = pictureBox1.Width;
                         ImageBoxHeight = pictureBox1.Height;
                         ImageWidth = bit.Width;
@@ -101,16 +104,18 @@ namespace ImageManipulator
 
         private void showHistogramToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int[,] arrayOfNumberOfValuesOfHistogram = new int[pictureBox1.Width,pictureBox1.Height];
             HistogramForm HistogramForm = new HistogramForm();
             ImageLib ImageLibrary = new ImageLib();
-            ImageLib.imread();
-            UInt16[] ArrayOfHistogram;
-            for (int i=0;i< )
-            {
-                for()
-                {
 
-                }
+            //UInt16[,,] image =ImageLib.imread(FullPath);
+
+            UInt16[,,] ColoredImage = ImageLib.imread(FullPath);
+            UInt16[,] ImageGray = ImageLib.rgb2gray(ColoredImage);
+            UInt16[] HistogramResults = ImageLib.imhistgray(ImageGray);
+            for (int i=0;i< HistogramResults.Length;++i)
+            {
+                
             }
 
 
