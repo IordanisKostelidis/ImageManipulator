@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageManipulator", "ImageManipulator\ImageManipulator.csproj", "{AF883582-FC83-424E-A474-9874F159BBDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageManipulatorTests", "ImageManipulatorTests\ImageManipulatorTests.csproj", "{9070DBFF-967D-4C8D-A7AB-D73A49866CEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AF883582-FC83-424E-A474-9874F159BBDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF883582-FC83-424E-A474-9874F159BBDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF883582-FC83-424E-A474-9874F159BBDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9070DBFF-967D-4C8D-A7AB-D73A49866CEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9070DBFF-967D-4C8D-A7AB-D73A49866CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9070DBFF-967D-4C8D-A7AB-D73A49866CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9070DBFF-967D-4C8D-A7AB-D73A49866CEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
