@@ -13,8 +13,10 @@ using System.Windows.Forms;
 
 namespace ImageManipulator
 {
+
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +27,19 @@ namespace ImageManipulator
         public int ImageMissingSize = 0;
         public int ImageWidth = 0;
         public int ImageHeight = 0;
-        string FullPath;
+        string FullPath { get; set; }
+
+
+        public void SetPath(string path)
+        {
+            this.FullPath = path;
+        }
+
+        public string GetPath()
+        {
+            return this.FullPath;
+        }
+
        // int[,] arrayOfNumberOfValuesOfHistogram; = new int[];
 
 
@@ -71,7 +85,6 @@ namespace ImageManipulator
                     {
 
                         Bitmap bit = new Bitmap(open.FileName);
-                        FullPath = Path.GetFullPath(open.FileName);
                         ImageBoxWidth = pictureBox1.Width;
                         ImageBoxHeight = pictureBox1.Height;
                         ImageWidth = bit.Width;
@@ -93,6 +106,7 @@ namespace ImageManipulator
                             }
                         }
                     }
+                    FullPath = Path.GetFullPath(open.FileName);
 
                 }
                 catch (Exception)
@@ -104,24 +118,7 @@ namespace ImageManipulator
 
         private void showHistogramToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int[,] arrayOfNumberOfValuesOfHistogram = new int[pictureBox1.Width,pictureBox1.Height];
-            HistogramForm HistogramForm = new HistogramForm();
-            ImageLib ImageLibrary = new ImageLib();
-
-            //UInt16[,,] image =ImageLib.imread(FullPath);
-
-            UInt16[,,] ColoredImage = ImageLib.imread(FullPath);
-            UInt16[,] ImageGray = ImageLib.rgb2gray(ColoredImage);
-            UInt16[] HistogramResults = ImageLib.imhistgray(ImageGray);
-            for (int i=0;i< HistogramResults.Length;++i)
-            {
-             
-                
-
-
-            }
-
-
+            HistogramForm HistogramForm = new HistogramForm(FullPath,pictureBox1.Width,pictureBox1.Height);
             HistogramForm.Show();
         }
 

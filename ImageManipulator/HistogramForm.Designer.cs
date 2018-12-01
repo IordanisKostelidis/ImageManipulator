@@ -63,7 +63,7 @@
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "ImageHistogram";
             this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(1155, 607);
             this.chart1.TabIndex = 0;
@@ -78,6 +78,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "HistogramForm";
             this.Text = "HistogramForm";
+            this.Load += new System.EventHandler(this.HistogramForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
