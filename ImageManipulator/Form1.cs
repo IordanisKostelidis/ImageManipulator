@@ -115,7 +115,10 @@ namespace ImageManipulator
             UInt16[] HistogramResults = ImageLib.imhistgray(ImageGray);
             for (int i=0;i< HistogramResults.Length;++i)
             {
+             
                 
+
+
             }
 
 
