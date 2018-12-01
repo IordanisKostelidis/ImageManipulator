@@ -5,6 +5,7 @@ namespace ImageManipulator
 {
     public class ImageLib
     {
+        //The function accepts the full path of the file and returns the 3D image (colored(RGB)) 
         public static UInt16[,,] imread(String file)
         {
             Bitmap bitmap = new Bitmap(file);
@@ -24,6 +25,7 @@ namespace ImageManipulator
 
         }
 
+        //The function accepts the colored image and returns the grayscale image
         public static UInt16[,] rgb2gray(UInt16[,,] rgb)
         {
             UInt16[,] gray = new UInt16[rgb.GetLength(0), rgb.GetLength(1)];
@@ -38,6 +40,7 @@ namespace ImageManipulator
             return gray;
         }
 
+        //The function accepts a grascale image and returns an array of the histogram
         public static UInt16[] imhistgray(UInt16[,] gray)
         {
             UInt16[] hist = new UInt16[256];
@@ -57,6 +60,7 @@ namespace ImageManipulator
             return hist;
         }
 
+        //The function accepts the grayscale image, and and returns the array of the equalized histogram
         public static UInt16[] histeqgray(UInt16[,] gray)
         {
             UInt16[] hist = imhistgray(gray);
@@ -113,7 +117,8 @@ namespace ImageManipulator
 
             return eq;
         }
-
+        //The function finds the minimum of a given table, and a a boolean value, that ask to find the non-zero values
+        //It returns the minimum number of the array
         private static float findMin(float[] table, Boolean nonZeroOnly)
         {
             float result = table[0];

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,8 +25,10 @@ namespace ImageManipulator
         public int ImageMissingSize = 0;
         public int ImageWidth = 0;
         public int ImageHeight = 0;
-            
-        
+        string FullPath;
+
+
+
         public static Bitmap ResizeImage(Image image, int width, int height)
         {
             var destRect = new Rectangle(0, 0, width, height);
@@ -69,17 +72,12 @@ namespace ImageManipulator
                         ImageBoxWidth = pictureBox1.Width;
                         ImageBoxHeight = pictureBox1.Height;
                         ImageWidth = bit.Width;
-                        ImageHeight = bit.Height;
-                        //   MessageBox.Show("Υψος ImageBox", ImageBoxHeight.ToString());
-                        //  MessageBox.Show("Πλατος Imagebox", ImageBoxWidth.ToString());
-                        //  MessageBox.Show("Υψος Εικονας", ImageHeight.ToString());
-                        // MessageBox.Show("Πλατος Εικονας", ImageWidth.ToString());
+                        ImageHeight = bit.Height;                    
                         if (ImageBoxWidth >= ImageBoxHeight)
                         {
                             if (ImageWidth >= ImageHeight)
                             {
                                 ImageMissingSize = (ImageWidth * ImageBoxHeight) / (ImageHeight);
-                                //   MessageBox.Show(ImageMissingSize.ToString() + " X " + ImageBoxHeight.ToString());
                                 pictureBox1.Image = ResizeImage(bit, ImageMissingSize, ImageBoxHeight);
                             }
                         }
@@ -87,7 +85,6 @@ namespace ImageManipulator
                             if (ImageWidth < ImageHeight)
                             {
                                 ImageMissingSize = (ImageWidth * ImageBoxHeight) / (ImageWidth);
-                                //   MessageBox.Show(ImageMissingSize.ToString() + " X " + ImageBoxHeight.ToString());
                                 pictureBox1.Image = ResizeImage(bit, ImageWidth, ImageMissingSize);
 
                             }
@@ -100,6 +97,29 @@ namespace ImageManipulator
                     throw new ApplicationException("Failed loading image");
                 }
             }
+        }
+
+        private void showHistogramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HistogramForm HistogramForm = new HistogramForm();
+            ImageLib ImageLibrary = new ImageLib();
+            ImageLib.imread();
+            UInt16[] ArrayOfHistogram;
+            for (int i=0;i< )
+            {
+                for()
+                {
+
+                }
+            }
+
+
+            HistogramForm.Show();
+        }
+
+        private void pictureBox1_Resize(object sender, EventArgs e)
+        {
+            this.Refresh();
         }
     }
 }
