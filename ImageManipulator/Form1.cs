@@ -91,10 +91,9 @@ namespace ImageManipulator
                                 pictureBox1.Image = ResizeImage(bit, ImageWidth, ImageMissingSize);
 
                             }
-
-
                         }
                     }
+
                 }
                 catch (Exception)
                 {
